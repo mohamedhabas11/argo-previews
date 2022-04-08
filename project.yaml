@@ -28,7 +28,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: AppProject
 metadata:
   name: previews
-  namespace: argocd
+  namespace: argocd2
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
@@ -36,11 +36,11 @@ spec:
   sourceRepos:
   - '*'
   destinations:
-  - namespace: previews
+  - namespace: previews-test
     server: https://kubernetes.default.svc
   - namespace: "pr-*"
     server: https://kubernetes.default.svc
-  - namespace: argocd
+  - namespace: argocd2
     server: https://kubernetes.default.svc
   clusterResourceWhitelist:
   - group: ''
