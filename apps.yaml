@@ -1,8 +1,30 @@
+# apiVersion: argoproj.io/v1alpha1
+# kind: Application
+# metadata:
+#   name: previews-test
+#   namespace: test
+#   finalizers:
+#     - resources-finalizer.argocd.argoproj.io
+# spec:
+#   project: previews
+#   source:
+#     repoURL: https://github.com/mohamedhabas11/argo-previews.git
+#     targetRevision: HEAD
+#     path: helm
+#   destination:
+#     server: https://kubernetes.default.svc
+#     namespace: test
+#   syncPolicy:
+#     automated:
+#       selfHeal: true
+#       prune: true
+
+
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: previews-test
-  namespace: test
+  name: previews
+  namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
@@ -13,7 +35,7 @@ spec:
     path: helm
   destination:
     server: https://kubernetes.default.svc
-    namespace: test
+    namespace: previews
   syncPolicy:
     automated:
       selfHeal: true

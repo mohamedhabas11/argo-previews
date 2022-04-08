@@ -1,8 +1,34 @@
+# apiVersion: argoproj.io/v1alpha1
+# kind: AppProject
+# metadata:
+#   name: previews
+#   namespace: test
+#   finalizers:
+#     - resources-finalizer.argocd.argoproj.io
+# spec:
+#   description: Previews
+#   sourceRepos:
+#   - '*'
+#   destinations:
+#   - namespace: previews
+#     server: https://kubernetes.default.svc
+#   - namespace: "pr-*"
+#     server: https://kubernetes.default.svc
+#   - namespace: test
+#     server: https://kubernetes.default.svc
+#   clusterResourceWhitelist:
+#   - group: ''
+#     kind: Namespace
+#   namespaceResourceWhitelist:
+#   - group: "*"
+#     kind: "*"
+
+
 apiVersion: argoproj.io/v1alpha1
 kind: AppProject
 metadata:
   name: previews
-  namespace: test
+  namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
@@ -14,7 +40,7 @@ spec:
     server: https://kubernetes.default.svc
   - namespace: "pr-*"
     server: https://kubernetes.default.svc
-  - namespace: test
+  - namespace: argocd
     server: https://kubernetes.default.svc
   clusterResourceWhitelist:
   - group: ''
@@ -22,4 +48,3 @@ spec:
   namespaceResourceWhitelist:
   - group: "*"
     kind: "*"
-
