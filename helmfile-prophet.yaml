@@ -11,7 +11,7 @@ spec:
   source:
     path: .
     repoURL: https://github.com/mohamedhabas11/argo-previews.git
-    targetRevision: HEAD
+    targetRevision: '*'
     plugin:
       name: helmfile
     # namespace: previews-test
